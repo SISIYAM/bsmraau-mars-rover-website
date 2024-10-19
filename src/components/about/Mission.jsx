@@ -2,26 +2,29 @@ import React from "react";
 
 function Mission() {
   return (
-    <div className="row position-relative mb-0 ">
+    <div className="row position-relative mb-0">
       <div className="col-lg-8 text-center mx-auto position-relative">
+        {/* SVG Decoration - Top Left */}
         <figure className="position-absolute top-0 start-0 ms-n9">
           <svg width="22px" height="22px" viewBox="0 0 22 22">
             <polygon
               className="fill-orange"
-              points="22,8.3 13.7,8.3 13.7,0 8.3,0 8.3,8.3 0,8.3 0,13.7 8.3,13.7 8.3,22 13.7,22 13.7,13.7 22,13.7 "
+              points="22,8.3 13.7,8.3 13.7,0 8.3,0 8.3,8.3 0,8.3 0,13.7 8.3,13.7 8.3,22 13.7,22 13.7,13.7 22,13.7"
             />
           </svg>
         </figure>
-        {/* SVG decoration */}
+
+        {/* SVG Decoration - Bottom Right */}
         <figure className="position-absolute top-100 start-100 translate-middle ms-5 d-none d-lg-block">
           <svg width="21.5px" height="21.5px" viewBox="0 0 21.5 21.5">
             <polygon
               className="fill-danger"
-              points="21.5,14.3 14.4,9.9 18.9,2.8 14.3,0 9.9,7.1 2.8,2.6 0,7.2 7.1,11.6 2.6,18.7 7.2,21.5 11.6,14.4 18.7,18.9 "
+              points="21.5,14.3 14.4,9.9 18.9,2.8 14.3,0 9.9,7.1 2.8,2.6 0,7.2 7.1,11.6 2.6,18.7 7.2,21.5 11.6,14.4 18.7,18.9"
             />
           </svg>
         </figure>
-        {/* SVG decoration */}
+
+        {/* SVG Decoration - Top Right */}
         <figure className="position-absolute top-0 start-100 translate-middle d-none d-md-block">
           <svg width="27px" height="27px">
             <path
@@ -30,8 +33,9 @@ function Mission() {
             />
           </svg>
         </figure>
-        {/* Title */}
-        <h3>Our Mission </h3>
+
+        {/* Title and Mission Statement */}
+        <h3 className="mt-4">Our Mission</h3>
         <p style={{ textAlign: "justify" }}>
           Our mission is to foster an open, collaborative environment for
           learning, where students can access high-quality resources tailored to

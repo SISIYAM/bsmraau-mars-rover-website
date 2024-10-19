@@ -50,7 +50,7 @@ function About() {
                 </svg>
               </figure>
               {/* Title */}
-              <h1 className="position-relative fs-2">SEI Notes</h1>
+              <h1 className="position-relative fs-2">Rover 71</h1>
             </div>
             {/* Title and SVG END */}
           </div>

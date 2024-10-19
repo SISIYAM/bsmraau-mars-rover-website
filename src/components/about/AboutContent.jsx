@@ -42,14 +42,18 @@ function AboutContent() {
                 </svg>
               </figure>
               {/* Title */}
-              <h3>About AE (Avionics) 3rd Batch – BAAU</h3>
+              <h3>
+                The Story of How We Got Started: Mars Rover 71 Project at
+                BSMRAAU
+              </h3>
               <p style={{ textAlign: "justify" }}>
-                Welcome to SEI Notes, the official platform for sharing study
-                materials by the AE (Avionics) 3rd Batch of Bangabandhu Sheikh
-                Mujibur Rahman Aviation and Aerospace University (BAAU). We are
-                a dynamic group of students dedicated to the field of avionics,
-                striving to lead the future of aviation and aerospace
-                technology.
+                The journey of Mars Rover 71 at Bangabandhu Sheikh Mujibur
+                Rahman Aviation and Aerospace University (BSMRAAU) began with a
+                vision—an ambitious group of students and faculty united by a
+                passion for space exploration and robotics. Inspired by the
+                success of NASA's Mars rovers, our mission was to build a
+                functional prototype capable of handling extreme terrain and
+                simulating tasks that real Mars rovers perform.
               </p>
             </div>
           </div>
@@ -61,7 +65,7 @@ function AboutContent() {
                     <div className="position-relative">
                       {/* Image */}
                       <img
-                        src="/assets/images/aeAvioDeptImg.jpg"
+                        src="assets/images/NASA_Mars_Rover.webp"
                         className="card-img rounded-2"
                         alt="..."
                       />
@@ -73,8 +77,7 @@ function AboutContent() {
           </section>
           <IntroAbout />
           <Mission />
-          <Developer />
-          <Acknowledgements />
+
           <Journey />
           <Memories />
           <Gallery />

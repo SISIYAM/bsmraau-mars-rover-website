@@ -1,28 +1,16 @@
-import { useState, useEffect } from "react";
+import React from "react";
+import LightGallery from "lightgallery/react";
+import "./Gallery.css";
+// Import styles
+import "lightgallery/css/lightgallery.css";
+import "lightgallery/css/lg-zoom.css";
+import "lightgallery/css/lg-thumbnail.css";
 
-const fetchImagesFromDrive = async () => {
-  const folderId = "10ZyS3rP3Rt3aBzbTG0tAIT0SngLVvAFz";
-  const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
+// Import plugins
+import lgThumbnail from "lightgallery/plugins/thumbnail";
+import lgZoom from "lightgallery/plugins/zoom";
 
-  const response = await fetch(
-    `https://www.googleapis.com/drive/v3/files?q='${folderId}' in parents and mimeType contains 'image/'&key=${apiKey}`
-  );
-  const data = await response.json();
-
-  if (data.files) {
-    return data.files;
-  } else {
-    throw new Error("Failed to fetch images");
-  }
-};
-function Gallery() {
-  // const [images, setImages] = useState([]);
-
-  // useEffect(() => {
-  //   fetchImagesFromDrive()
-  //     .then((files) => setImages(files))
-  //     .catch((error) => console.error(error));
-  // }, []);
+export default function Gallery() {
   const images = [
     "photo_6269336802917727436_y.jpg",
     "IMG-20231010-WA0010.jpg",
@@ -68,6 +56,10 @@ function Gallery() {
     "photo_6269336802917727447_y.jpg",
   ];
 
+  const onInit = () => {
+    console.log("LightGallery has been initialized");
+  };
+
   return (
     <div className="row position-relative mb-0">
       <div className="col-lg-8 text-center mx-auto position-relative">
@@ -104,24 +96,28 @@ function Gallery() {
           a gallery section by adding images in a grid layout to showcase batch
           photos, events, and significant moments.
         </p>
-        <div className="row">
-          {images.map((image, i) => (
-            <div className="col-md-4 my-2">
-              <div className="gallery-item">
+        <div className="galleryImages">
+          <LightGallery
+            onInit={onInit}
+            speed={500}
+            plugins={[lgThumbnail, lgZoom]}
+          >
+            {images.map((image, index) => (
+              <a
+                href={`/assets/images/memories/${image}`}
+                className="gallery-item"
+                key={index}
+              >
                 <img
-                  key={i}
+                  alt={`Gallery Image ${index + 1}`}
                   src={`/assets/images/memories/${image}`}
-                  alt={image.name}
-                  className="img-fluid"
-                  crossOrigin="anonymous"
+                  className="gallery-image"
                 />
-              </div>
-            </div>
-          ))}
+              </a>
+            ))}
+          </LightGallery>
         </div>
       </div>
     </div>
   );
 }
-
-export default Gallery;
