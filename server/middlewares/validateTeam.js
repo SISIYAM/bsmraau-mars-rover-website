@@ -1,12 +1,12 @@
 const { body, validationResult } = require("express-validator");
 
-const validateMember = [
-  body("name").notEmpty().withMessage("Name is required."),
+const validateTeam = [
+  body("teamName").notEmpty().withMessage("Team name is required."),
   body("email").isEmail().withMessage("Invalid email format.").normalizeEmail(),
-  body("mobile")
-    .matches(/^\d{10,15}$/)
-    .withMessage("Invalid mobile number."),
-  body("team").notEmpty().withMessage("Team is required."),
+  body("description")
+    .optional()
+    .isLength({ max: 500 })
+    .withMessage("Description should not exceed 500 characters."),
   body("image").optional().isURL().withMessage("Invalid image URL."),
 
   (req, res, next) => {
@@ -18,4 +18,4 @@ const validateMember = [
   },
 ];
 
-module.exports = validateMember;
+module.exports = validateTeam;
