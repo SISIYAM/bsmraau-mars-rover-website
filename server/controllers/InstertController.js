@@ -1,6 +1,7 @@
 const Member = require("../models/Member");
 const Team = require("../models/Team");
 
+// method for add members
 const addMember = async (req, res) => {
   try {
     const { name, email, mobile, team, image } = req.body;
@@ -23,7 +24,7 @@ const addMember = async (req, res) => {
   }
 };
 
-// code for insert team
+// method for insert team
 const addTeam = async (req, res) => {
   try {
     const { teamName, email, description, image } = req.body;
