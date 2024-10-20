@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Banner from "../components/faculties/Banner";
-import Card from "../components/faculties/Card";
+import Banner from "../components/teams/Banner";
+import Card from "../components/teams/Card";
 import axios from "axios";
 import baseUrl from "../components/Myconst";
 import Loading from "../components/Loading";
 
-function Faculties() {
+function Teams() {
   const [faculties, setFaculties] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -55,4 +55,4 @@ function Faculties() {
   );
 }
 
-export default Faculties;
+export default Teams;

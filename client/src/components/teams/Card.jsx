@@ -1,5 +1,6 @@
 import React from "react";
 import { baseAssetsUrl } from "../Myconst";
+import { Link } from "react-router-dom";
 
 function Card(props) {
   return (
@@ -21,7 +22,7 @@ function Card(props) {
               <div className="d-sm-flex justify-content-sm-between mb-2 mb-sm-3">
                 <div>
                   <h5 className="card-title mb-0">
-                    <a href="#">{props.name}</a>
+                    <Link to="/teams/software-team">{props.name}</Link>
                   </h5>
                   <p className="small mb-2 mb-sm-0">{props.post}</p>
                 </div>

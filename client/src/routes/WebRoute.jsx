@@ -12,15 +12,17 @@ import About from "../pages/About";
 
 import Error from "../components/Error";
 
-import Faculties from "../pages/Faculties";
+import Teams from "../pages/Teams";
 import RequestForm from "../pages/RequestForm";
+import TeamMembers from "../components/Team-Members/TeamMembers";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index={true} element={<Home />} />
       <Route path="about" element={<About />} />
-      <Route path="faculties" element={<Faculties />} />
+      <Route path="teams" element={<Teams />} />
+      <Route path="teams/:teamName" element={<TeamMembers />} />
       <Route path="request/material" element={<RequestForm />} />
       <Route path="*" element={<Error />} />
     </Route>
