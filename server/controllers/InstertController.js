@@ -1,4 +1,5 @@
 const Member = require("../models/Member");
+const Team = require("../models/Team");
 
 const addMember = async (req, res) => {
   try {
@@ -22,4 +23,32 @@ const addMember = async (req, res) => {
   }
 };
 
-module.exports = { addMember };
+// code for insert team
+const addTeam = async (req, res) => {
+  try {
+    const { teamName, email, description, image } = req.body;
+
+    const newTeam = new Team({
+      teamName,
+      email,
+      description,
+      image,
+    });
+
+    const savedTeam = await newTeam.save();
+
+    res.status(201).json({
+      message: "Team inserted successfully",
+      data: savedTeam,
+    });
+  } catch (error) {
+    console.error("Error inserting team:", error);
+
+    res.status(500).json({
+      message: "Failed to insert team",
+      error: error.message,
+    });
+  }
+};
+
+module.exports = { addMember, addTeam };
