@@ -6,7 +6,11 @@ const fetchMembers = async (req, res) => {
   try {
     const members = await Member.find();
 
-    res.status(200).json({
+    if (!members || members.length === 0) {
+      return res.status(404).json({ message: "No records found" });
+    }
+
+    return res.status(200).json({
       message: "Members fetched successfully",
       data: members,
     });
@@ -24,7 +28,10 @@ const fetchMembers = async (req, res) => {
 const fetchTeams = async (req, res) => {
   try {
     const teams = await Team.find();
-
+    console.log(teams);
+    if (!teams || teams.length === 0) {
+      return res.status(404).json({ message: "No records found" });
+    }
     res.status(200).json({
       message: "Teams fetch successfully",
       data: teams,
@@ -37,5 +44,8 @@ const fetchTeams = async (req, res) => {
     });
   }
 };
+
+// method for fetch individual teams data
+const individualTeams = (req, res) => {};
 
 module.exports = { fetchMembers, fetchTeams };
