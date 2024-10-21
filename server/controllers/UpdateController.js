@@ -36,7 +36,7 @@ const updateTeam = async (req, res) => {
     // get id from params
     const { id } = req.params;
 
-    const updatedTeam = await Member.findByIdAndUpdate(id, req.body, {
+    const updatedTeam = await Team.findByIdAndUpdate(id, req.body, {
       new: true,
       runValidators: true,
     });
