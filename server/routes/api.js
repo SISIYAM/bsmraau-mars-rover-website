@@ -10,6 +10,7 @@ const {
   deleteMembers,
 } = require("../controllers/DeleteController");
 const validateObjectId = require("../middlewares/validateObjectId");
+const { updateMember } = require("../controllers/UpdateController");
 
 // routes for insert
 router.post("/create/member", validateMember, addMember);
@@ -22,5 +23,13 @@ router.get("/fetch/teams", fetchTeams);
 // routes for delete
 router.delete("/delete/team/:id", validateObjectId, deleteTeams);
 router.delete("/delete/member/:id", validateObjectId, deleteMembers);
+
+// routes for update
+router.put(
+  "/update/member/:id",
+  validateObjectId,
+  validateMember,
+  updateMember
+);
 
 module.exports = router;
