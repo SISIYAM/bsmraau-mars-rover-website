@@ -11,6 +11,8 @@ const {
 } = require("../controllers/DeleteController");
 const validateObjectId = require("../middlewares/validateObjectId");
 const { updateMember } = require("../controllers/UpdateController");
+const { validateUser, validateLogin } = require("../middlewares/validateUser");
+const { signupUser, loginUser } = require("../controllers/AuthController");
 
 // routes for insert
 router.post("/create/member", validateMember, addMember);
@@ -31,5 +33,9 @@ router.put(
   validateMember,
   updateMember
 );
+
+// routes for authentication
+router.post("/auth/signup", validateUser, signupUser);
+router.post("/auth/login", validateLogin, loginUser);
 
 module.exports = router;
