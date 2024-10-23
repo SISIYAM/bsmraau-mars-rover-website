@@ -61,4 +61,24 @@ const validateLogin = [
   },
 ];
 
-module.exports = { validateUser, validateLogin };
+// validation middleware for ejs
+const validateEjsLogin = [
+  body("email")
+    .trim()
+    .notEmpty()
+    .withMessage("Email is required")
+    .isEmail()
+    .withMessage("Invalid email format"),
+
+  body("password").notEmpty().withMessage("Password is required"),
+
+  (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      const errorMessages = errors.array().map((err) => err.msg);
+      return res.render("login", { message: errorMessages.join(", ") });
+    }
+    next();
+  },
+];
+module.exports = { validateUser, validateLogin, validateEjsLogin };

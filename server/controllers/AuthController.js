@@ -70,4 +70,42 @@ const loginUser = async (req, res) => {
   }
 };
 
-module.exports = { signupUser, loginUser };
+// method for login ejs user
+const loginEjsUser = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.render("login", { message: "Invalid credentials" });
+    }
+
+    // compare the password with the stored hashed password
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.render("login", { message: "Invalid credentials" });
+    }
+
+    // generate JWT token
+    const payload = { user: { id: user._id } };
+    const token = jwt.sign(payload, JWT_SECRET, { expiresIn: TOKEN_EXPIRY });
+
+    // set JWT token in cookie
+    res.cookie("token", token, { httpOnly: true });
+
+    res.redirect("/dashboard");
+  } catch (error) {
+    console.error("Error logging in user:", error);
+    res
+      .status(500)
+      .render("login", { message: "Server error, please try again" });
+  }
+};
+
+// method for log out user
+const logoutUser = (req, res) => {
+  res.clearCookie("token");
+  res.redirect("/login");
+};
+
+module.exports = { signupUser, loginUser, loginEjsUser, logoutUser };
