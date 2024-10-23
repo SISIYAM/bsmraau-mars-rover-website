@@ -2,6 +2,7 @@ const express = require("express");
 const {
   loadLoginForm,
   loadDashboard,
+  loadTeams,
 } = require("../controllers/AdminDashboardController");
 const {
   authenticateToken,
@@ -23,5 +24,11 @@ router.get("/dashboard", authenticateToken, loadDashboard);
 // route for authentication
 router.post("/login", checkAuthenticated, validateEjsLogin, loginEjsUser);
 router.get("/logout", logoutUser);
+
+// route for load teams table
+router.get("/teams", authenticateToken, loadTeams);
+
+// route for load members table
+router.get("/members", authenticateToken);
 
 module.exports = router;

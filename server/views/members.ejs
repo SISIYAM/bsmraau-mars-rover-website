@@ -1,0 +1,37 @@
+<div class="table-responsive my-5">
+  <table id="usersTable" class="table table-striped table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th>#</th>
+        <th>Image</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% members.forEach((member,index) => { %>
+      <tr>
+        <td><%= ++index %></td>
+        <td><%= member.image %></td>
+        <td><%= member.id %></td>
+        <td><%= member.name %></td>
+        <td><%= member.email %></td>
+        <td>
+          <a
+            href="/members/<%= member.id %>/edit"
+            class="btn btn-sm btn-primary"
+            >Edit</a
+          >
+          <a
+            href="/members/<%= member.id %>/delete"
+            class="btn btn-sm btn-danger"
+            >Delete</a
+          >
+        </td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>

@@ -1,5 +1,7 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
+const Team = require("../models/Team");
+const Member = require("../models/Member");
 const JWT_SECRET = process.env.JWT_SECRET;
 
 const loadLoginForm = (req, res) => {
@@ -30,4 +32,34 @@ const loadDashboard = async (req, res) => {
   }
 };
 
-module.exports = { loadLoginForm, loadDashboard };
+// method for load teams
+const loadTeams = async (req, res) => {
+  try {
+    const isLoggedIn = req.cookies.isLoggedIn === "true";
+
+    const teams = await Team.find({});
+
+    res.render("teams", { teams, isLoggedIn, message: "" });
+  } catch (error) {
+    console.error("Error loading teams:", error);
+    res.render("teams", {
+      error,
+      message:
+        "Failed to load teams. Please try again later, check console for more",
+    });
+  }
+};
+
+// method for load members
+const laodMembers = async (req, res) => {
+  try {
+    const isLoggedIn = req.cookies.isLoggedIn === "true";
+
+    // fetch teams
+    const members = await Member.find({});
+
+    res.render("members", { members, isLoggedIn });
+  } catch (error) {}
+};
+
+module.exports = { loadLoginForm, loadDashboard, loadTeams, laodMembers };

@@ -3,7 +3,7 @@ const cors = require("cors");
 const connectToMongo = require("./db");
 const path = require("path");
 const cookieParser = require("cookie-parser");
-
+const expressLayouts = require("express-ejs-layouts");
 // create express app
 const app = express();
 
@@ -11,6 +11,7 @@ app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
+app.use(expressLayouts);
 
 // connenct mongoDB
 connectToMongo();
@@ -24,6 +25,9 @@ const webRoutes = require("./routes/web");
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
+
+// set the layout template
+app.set("layout", "layouts/main");
 
 // call api
 app.use("/api/v1/", api);
