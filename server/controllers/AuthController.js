@@ -91,8 +91,15 @@ const loginEjsUser = async (req, res) => {
     const token = jwt.sign(payload, JWT_SECRET, { expiresIn: TOKEN_EXPIRY });
 
     // set JWT token in cookie
-    res.cookie("token", token, { httpOnly: true });
-    res.cookie("isLoggedIn", true, { httpOnly: true, secure: true });
+    res.cookie("token", token, {
+      maxAge: 30 * 24 * 60 * 60 * 1000,
+      httpOnly: true,
+    });
+    res.cookie("isLoggedIn", true, {
+      maxAge: 30 * 24 * 60 * 60 * 1000,
+      httpOnly: true,
+      secure: true,
+    });
     res.redirect("/dashboard");
   } catch (error) {
     console.error("Error logging in user:", error);
