@@ -92,7 +92,7 @@ const loginEjsUser = async (req, res) => {
 
     // set JWT token in cookie
     res.cookie("token", token, { httpOnly: true });
-
+    res.cookie("isLoggedIn", true, { httpOnly: true, secure: true });
     res.redirect("/dashboard");
   } catch (error) {
     console.error("Error logging in user:", error);
@@ -105,6 +105,7 @@ const loginEjsUser = async (req, res) => {
 // method for log out user
 const logoutUser = (req, res) => {
   res.clearCookie("token");
+  res.clearCookie("isLoggedIn");
   res.redirect("/login");
 };
 

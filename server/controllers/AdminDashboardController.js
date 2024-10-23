@@ -22,8 +22,8 @@ const loadDashboard = async (req, res) => {
     if (!user) {
       return res.redirect("/login");
     }
-
-    res.render("dashboard", { username: user.username });
+    const isLoggedIn = req.cookies.isLoggedIn === "true";
+    res.render("dashboard", { username: user.username, isLoggedIn });
   } catch (error) {
     console.error("Error loading dashboard:", error);
     return res.redirect("/login");
