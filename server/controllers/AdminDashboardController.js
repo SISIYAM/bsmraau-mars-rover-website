@@ -39,7 +39,7 @@ const loadTeams = async (req, res) => {
 
     const teams = await Team.find({});
 
-    res.render("teams", { teams, isLoggedIn, message: "" });
+    res.render("teams", { teams, isLoggedIn, message: req.flash() });
   } catch (error) {
     console.error("Error loading teams:", error);
     res.render("teams", {
@@ -58,8 +58,15 @@ const laodMembers = async (req, res) => {
     // fetch teams
     const members = await Member.find({});
 
-    res.render("members", { members, isLoggedIn });
-  } catch (error) {}
+    res.render("members", { members, isLoggedIn, message: req.flash() });
+  } catch (error) {
+    console.error("Error loading members:", error);
+    res.render("members", {
+      error,
+      message:
+        "Failed to load members. Please try again later, check console for more",
+    });
+  }
 };
 
 module.exports = { loadLoginForm, loadDashboard, loadTeams, laodMembers };

@@ -1,6 +1,8 @@
 <div class="table-responsive my-5">
-  <% if (message) { %>
-  <div class="alert alert-danger"><%= message %></div>
+  <% if (message.error) { %>
+  <div class="alert alert-danger"><%= message.error %></div>
+  <% } %> <% if (message.success) { %>
+  <div class="alert alert-success"><%= message.success %></div>
   <% } %> <% if (teams && teams.length > 0) { %>
   <!-- Check if teams exist and have entries -->
   <table id="usersTable" class="table table-striped table-bordered">
@@ -29,9 +31,15 @@
         <td><%= team.teamName %></td>
         <td><%= team.email %></td>
         <td>
-          <a href="/teams/<%= team.id %>/edit" class="btn btn-sm btn-primary"
-            >Edit</a
+          <button
+            value="<%= team.id %>"
+            class="btn btn-sm btn-primary loadForm"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModalCenter"
+            data-key="teams"
           >
+            Edit
+          </button>
           <a href="/teams/<%= team.id %>/delete" class="btn btn-sm btn-danger"
             >Delete</a
           >

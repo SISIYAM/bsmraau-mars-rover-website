@@ -4,6 +4,8 @@ const connectToMongo = require("./db");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const expressLayouts = require("express-ejs-layouts");
+const session = require("express-session");
+const flash = require("connect-flash");
 // create express app
 const app = express();
 
@@ -12,6 +14,17 @@ app.use(cors());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(expressLayouts);
+
+// falsh
+app.use(
+  session({
+    secret: "marsrover",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+
+app.use(flash());
 
 // connenct mongoDB
 connectToMongo();

@@ -59,7 +59,51 @@ const updateTeam = async (req, res) => {
   }
 };
 
+// method for update temas using ejs
+const updateTeamsEjs = async (req, res) => {
+  try {
+    const id = req.params.id;
+
+    const updatedTeam = await Team.findByIdAndUpdate(id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+
+    if (!updatedTeam) {
+      req.flash("error", "Team Not found!");
+      return res.redirect("/teams");
+    }
+    req.flash("success", "Team updated successfully");
+    return res.redirect("/teams");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// method for update memberes using ejs
+const updateMembersEjs = async (req, res) => {
+  try {
+    const id = req.params.id;
+
+    const updateMember = await Member.findByIdAndUpdate(id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+
+    if (!updateMember) {
+      req.flash("error", "Member Not found!");
+      return res.redirect("/members");
+    }
+    req.flash("success", "Member updated successfully");
+    return res.redirect("/members");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   updateMember,
   updateTeam,
+  updateTeamsEjs,
+  updateMembersEjs,
 };
