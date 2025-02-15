@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 
-const baseUrl = `https://server.notes.seiinnovations.com/api`;
-const baseAssetsUrl = `https://server.notes.seiinnovations.com/storage/`;
+const baseUrl = import.meta.env.VITE_BASE_URL;
+const baseAssetsUrl = import.meta.env.VITE_ASSET_URL;
 
 // format timestamp
 const formatDate = (dateString) => {

@@ -15,6 +15,7 @@ import Error from "../components/Error";
 import Teams from "../pages/Teams";
 import RequestForm from "../pages/RequestForm";
 import TeamMembers from "../components/Team-Members/TeamMembers";
+import TeamDetails from "../pages/TeamDetails";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -23,6 +24,7 @@ const router = createBrowserRouter(
       <Route path="about" element={<About />} />
       <Route path="teams" element={<Teams />} />
       <Route path="teams/:teamName" element={<TeamMembers />} />
+      <Route path="team/:slug" element={<TeamDetails />} />
       <Route path="request/material" element={<RequestForm />} />
       <Route path="*" element={<Error />} />
     </Route>

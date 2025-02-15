@@ -65,9 +65,25 @@ export default function Navbar() {
                     Home
                   </Link>
                 </li>
+
                 <li className="nav-item">
                   <Link className="nav-link" to="/teams">
                     Teams
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/">
+                    Our projects
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/">
+                    Partners
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/">
+                    Blogs
                   </Link>
                 </li>
                 <li className="nav-item">

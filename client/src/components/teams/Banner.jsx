@@ -7,7 +7,7 @@ function Banner() {
         <div className="row">
           <div className="col-12">
             <div className="bg-dark p-4 text-center rounded-3">
-              <h1 className="text-white m-0">Faculties list</h1>
+              <h1 className="text-white m-0">Teams list</h1>
               {/* Breadcrumb */}
               <div className="d-flex justify-content-center">
                 <nav aria-label="breadcrumb">
@@ -16,7 +16,7 @@ function Banner() {
                       <a href="#">Home</a>
                     </li>
                     <li className="breadcrumb-item active" aria-current="page">
-                      Faculties list
+                      Teams list
                     </li>
                   </ol>
                 </nav>

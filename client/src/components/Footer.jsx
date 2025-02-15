@@ -12,12 +12,13 @@ export default function Footer() {
             {/* logo */}
             <a className="me-0" href="https://seiinnovations.com/">
               <b className="text-light h3">
-                <img
+                {/* <img
                   src="/assets/images/footer-logo.png"
                   style={{ width: "290px", height: "100px" }}
                   alt="footer-logo"
                   srcset=""
-                />
+                /> */}
+                AAUB
               </b>
             </a>
             <p className="my-3 text-muted">

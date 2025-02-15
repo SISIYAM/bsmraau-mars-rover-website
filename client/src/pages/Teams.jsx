@@ -4,23 +4,23 @@ import Card from "../components/teams/Card";
 import axios from "axios";
 import baseUrl from "../components/Myconst";
 import Loading from "../components/Loading";
+import { Link } from "react-router-dom";
 
 function Teams() {
-  const [faculties, setFaculties] = useState([]);
+  const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetchFaculties();
+    fetchTeams();
 
     // scroll to top
     window.scrollTo(0, 0);
   }, []);
 
-  const fetchFaculties = async () => {
+  const fetchTeams = async () => {
     try {
-      const response = await axios.get(`${baseUrl}/request/fetch/faculties`);
-      if (response.data.status) {
-        console.log(response.data.faculties);
-        setFaculties(response.data.faculties);
+      const response = await axios.get(`${baseUrl}/fetch/teams`);
+      if (response.data) {
+        setTeams(response.data.data);
         setLoading(false);
       }
     } catch (error) {
@@ -38,14 +38,18 @@ function Teams() {
       <section className="pt-4">
         <div className="container">
           <div className="row g-4 justify-content-center">
-            {faculties.map((value, index) => {
+            {teams.map((value, index) => {
               return (
-                <Card
-                  key={index}
-                  image={value.image}
-                  name={value.name}
-                  post={value.post}
-                />
+                <>
+                  <Link to={`/team/${value._id}`}>
+                    <Card
+                      key={index}
+                      image={value.image}
+                      name={value.teamName}
+                      slug={value._id}
+                    />
+                  </Link>
+                </>
               );
             })}
           </div>

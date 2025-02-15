@@ -9,8 +9,8 @@ function Home() {
     window.scrollTo(0, 0);
   }, []);
   const topContentData = {
-    title: `Mars Rover – BAAU`,
-    description: `Get inspired and explore new frontiers with the Mars Rover Project at Bangabandhu Sheikh Mujibur Rahman Aviation and Aerospace University (BSMRAAU). This initiative aims to develop an advanced prototype rover designed for planetary exploration, focusing on autonomous navigation, obstacle detection, and environmental data collection.
+    title: `Mars Rover – AAUB`,
+    description: `Get inspired and explore new frontiers with the Mars Rover Project at  Aviation and Aerospace University Bangladesh (AAUB). This initiative aims to develop an advanced prototype rover designed for planetary exploration, focusing on autonomous navigation, obstacle detection, and environmental data collection.
 
 Our project integrates cutting-edge technologies from aeronautical engineering and avionics, showcasing the potential for space exploration. The Mars Rover features solar-powered modules, terrain analysis systems, and a remote-control interface powered by Python and ROS (Robot Operating System).
 
@@ -27,7 +27,6 @@ Pioneered by the Aeronautical Engineering Avionics 3rd Batch, this project is a 
         ytLink={topContentData.ytLink}
       />
       {/* <Universities /> */}
-      <BottomContent />
     </div>
   );
 }

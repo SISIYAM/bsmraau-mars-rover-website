@@ -80,7 +80,7 @@ function AboutContent() {
 
           <Journey />
           <Memories />
-          <Gallery />
+          {/* <Gallery /> */}
         </div>
       </section>
     </div>
