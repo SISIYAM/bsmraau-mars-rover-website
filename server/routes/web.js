@@ -16,6 +16,7 @@ const {
   updateTeamsEjs,
   updateMembersEjs,
 } = require("../controllers/UpdateController");
+const { addTeam } = require("../controllers/InstertController");
 const router = express.Router();
 
 // route for load login form
@@ -33,6 +34,8 @@ router.get("/logout", logoutUser);
 
 // route for load teams table
 router.get("/teams", authenticateToken, loadTeams);
+// route for insert team
+router.post("/teams", authenticateToken, addTeam);
 
 // route for load members table
 router.get("/members", authenticateToken, laodMembers);

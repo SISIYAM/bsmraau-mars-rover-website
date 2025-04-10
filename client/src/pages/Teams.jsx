@@ -11,8 +11,6 @@ function Teams() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetchTeams();
-
-    // scroll to top
     window.scrollTo(0, 0);
   }, []);
 
@@ -28,7 +26,6 @@ function Teams() {
     }
   };
 
-  // loading
   if (loading) {
     return <Loading />;
   }
@@ -37,21 +34,18 @@ function Teams() {
       <Banner />
       <section className="pt-4">
         <div className="container">
-          <div className="row g-4 justify-content-center">
-            {teams.map((value, index) => {
-              return (
-                <>
-                  <Link to={`/team/${value._id}`}>
-                    <Card
-                      key={index}
-                      image={value.image}
-                      name={value.teamName}
-                      slug={value._id}
-                    />
-                  </Link>
-                </>
-              );
-            })}
+          <div className="row g-4">
+            {teams.map((value, index) => (
+              <div className="col-md-6" key={index}>
+                <Link to={`/team/${value._id}`}>
+                  <Card
+                    image={value.image}
+                    name={value.teamName}
+                    slug={value._id}
+                  />
+                </Link>
+              </div>
+            ))}
           </div>
         </div>
       </section>
