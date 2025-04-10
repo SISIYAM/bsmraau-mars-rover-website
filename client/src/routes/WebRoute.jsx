@@ -20,7 +20,7 @@ import TeamDetails from "../pages/TeamDetails";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
-      <Route index={true} element={<Home />} />
+      <Route index={true} element={<About />} />
       <Route path="about" element={<About />} />
       <Route path="teams" element={<Teams />} />
       <Route path="teams/:teamName" element={<TeamMembers />} />

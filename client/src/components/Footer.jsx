@@ -196,15 +196,14 @@ export default function Footer() {
               {/* copyright text */}
               <div className="text-muted text-primary-hover">
                 <b>
-                  <a href="https://siyam70.netlify.app/">
-                    Developed by MD Saymum Islam Siyam, AE (Avionics) 3rd Batch,
-                    CTO at SEI Innovations
+                  <a href="https://siyam70.vercel.app/">
+                    Developed by Mars Rover
                   </a>
                 </b>
                 <br />
                 Copyrights
                 <a href="#" className="text-reset">
-                  ©2024 SEI Innovations
+                  ©Mars Rover
                 </a>
               </div>
               {/* copyright links*/}

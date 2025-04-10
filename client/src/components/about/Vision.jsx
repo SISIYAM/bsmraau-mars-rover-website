@@ -1,10 +1,9 @@
 import React from "react";
 
-function Journey() {
+function Vision() {
   return (
     <div className="row position-relative mb-0">
       <div className="col-lg-8 text-center mx-auto position-relative">
-        {/* SVG Decoration - Top Left */}
         <figure className="position-absolute top-0 start-0 ms-n9">
           <svg width="22px" height="22px" viewBox="0 0 22 22">
             <polygon
@@ -14,7 +13,6 @@ function Journey() {
           </svg>
         </figure>
 
-        {/* SVG Decoration - Bottom Right */}
         <figure className="position-absolute top-100 start-100 translate-middle ms-5 d-none d-lg-block">
           <svg width="21.5px" height="21.5px" viewBox="0 0 21.5 21.5">
             <polygon
@@ -24,7 +22,6 @@ function Journey() {
           </svg>
         </figure>
 
-        {/* SVG Decoration - Top Right */}
         <figure className="position-absolute top-0 start-100 translate-middle d-none d-md-block">
           <svg width="27px" height="27px">
             <path
@@ -34,25 +31,24 @@ function Journey() {
           </svg>
         </figure>
 
-        {/* Title and Journey Description */}
-        <h3 className="mt-4">Our Journey</h3>
+        <h3>Vision</h3>
         <p style={{ textAlign: "justify" }}>
-          The journey began with brainstorming and research, drawing inspiration
-          from existing Mars rover models. With support from our faculty, we
-          embarked on prototyping, overcoming numerous challenges, such as motor
-          issues, terrain testing, and sensor calibration. Late nights and
-          countless iterations in the lab strengthened our teamwork and
-          problem-solving skills.
-        </p>
-        <p style={{ textAlign: "justify" }}>
-          When the first prototype finally took shape, we felt immense pride.
-          Rover 71 successfully navigated rocky surfaces, collected data, and
-          transmitted information remotely—just like real Mars rovers. It was a
-          moment of triumph for the entire team.
+          The Rover-71 project, driven by AAUB university students, is an
+          opportunity to inspire, innovate, and educate. The project promotes
+          STEM education through robotics and aerospace engineering, aiming to
+          advance space exploration and inspire future generations. The website
+          is a hub to highlight student achievements, portray the team’s
+          journey, and promote community engagement. It supports fundraising
+          efforts, attracts sponsors, and prepares the team for global
+          competitions. Beyond competition, the project aims to share knowledge,
+          build career portfolios, and connect students and other personnel with
+          specialized industry professionals through collaboration. Ultimately,
+          this initiative reflects a long-term vision to contribute to space
+          exploration while inspiring future generations to reach for the stars.
         </p>
       </div>
     </div>
   );
 }
 
-export default Journey;
+export default Vision;

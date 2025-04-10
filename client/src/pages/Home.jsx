@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Universities from "../components/Universities";
 import TopContent from "../components/home/TopContent";
 import BottomContent from "../components/home/BottomContent";
+import Motivation from "../components/home/Motivation";
 
 function Home() {
   useEffect(() => {
@@ -27,6 +28,7 @@ Pioneered by the Aeronautical Engineering Avionics 3rd Batch, this project is a 
         ytLink={topContentData.ytLink}
       />
       {/* <Universities /> */}
+      <Motivation />
     </div>
   );
 }
