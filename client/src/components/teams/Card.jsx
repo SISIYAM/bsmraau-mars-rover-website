@@ -9,7 +9,8 @@ function Card(props) {
         {/* Image */}
         <div className="col-md-4">
           <img
-            src={baseAssetsUrl + props.image}
+            // src={baseAssetsUrl + props.image}
+            src={props.image}
             className="rounded-3 h-100 w-100 object-fit-cover"
             alt="..."
           />
